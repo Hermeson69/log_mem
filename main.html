@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Membro</title>
+    <link rel="stylesheet" href="./src/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Cadastro de Membro</h2>
+        <form action="/submit_form" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <select id="cargo" name="cargo" required>
+                    <option value="desenvolvedor">Desenvolvedor</option>
+                    <option value="designer">Designer</option>
+                    <option value="gerente">Gerente</option>
+                    <option value="analista">Analista</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sobre">Sobre:</label>
+                <textarea id="sobre" name="sobre" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="dominio">Domínio:</label>
+                <fieldset id="dominio" name="dominio" required>
+                    <div class="dropdown">
+                        <div class="dropdown-select" id="dominio-select">Escolher</div>
+                        <div class="dropdown-content" id="dominio-content">
+                            <!-- Domínios serão preenchidos dinamicamente -->
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            
+            <div class="form-group">
+                <label for="redes">Redes Sociais:</label>
+                <fieldset id="redes" name="redes">
+                    <div class="dropdown">
+                        <div class="dropdown-select" id="redes-select">Escolher</div>
+                        <div class="dropdown-content">
+                            <label>
+                                <input type="checkbox" value="linkedin" name="redes[]" onclick="toggleUrlInput(this)">
+                                LinkedIn
+                                <input type="url" id="linkedin" name="links[linkedin]"
+                                    placeholder="https://www.linkedin.com/in/usuario">
+                            </label>
+                            <label>
+                                <input type="checkbox" value="github" name="redes[]" onclick="toggleUrlInput(this)">
+                                GitHub
+                                <input type="url" id="github" name="links[github]"
+                                    placeholder="https://github.com/usuario">
+                            </label>
+                            <label>
+                                <input type="checkbox" value="twitter" name="redes[]" onclick="toggleUrlInput(this)">
+                                Twitter
+                                <input type="url" id="twitter" name="links[twitter]"
+                                    placeholder="https://twitter.com/usuario">
+                            </label>
+                            <label>
+                                <input type="checkbox" value="facebook" name="redes[]" onclick="toggleUrlInput(this)">
+                                Facebook
+                                <input type="url" id="facebook" name="links[facebook]"
+                                    placeholder="https://facebook.com/usuario">
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <label for="foto">Foto de Perfil:</label>
+                <input type="file" id="foto" name="foto" accept="image/*" required>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+    <script src="./src/main.js"></script>
+</body>
+
+</html>
